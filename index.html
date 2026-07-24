@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GOLDEN FOODS | Premium Fast Food</title>
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Syne:wght@700;800&display=swap" rel="stylesheet">
+  
+  <!-- FontAwesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Background Glows -->
+  <div class="ambient-glow glow-1"></div>
+  <div class="ambient-glow glow-2"></div>
+
+  <!-- Mobile Overlay for Navigation -->
+  <div class="nav-overlay" id="nav-overlay"></div>
+
+  <!-- NAVIGATION BAR -->
+  <header class="navbar" id="navbar">
+    <div class="nav-container">
+      <a href="#home" class="brand-logo">
+        <span class="logo-text">GOLDEN</span><span class="logo-accent">FOODS</span>
+      </a>
+
+      <nav class="nav-menu" id="nav-menu">
+        <div class="mobile-menu-header">
+          <a href="#home" class="brand-logo">
+            <span class="logo-text">GOLDEN</span><span class="logo-accent">FOODS</span>
+          </a>
+          <button class="mobile-close-btn" id="mobile-close-btn" aria-label="Close Menu">
+            <i class="fa-solid fa-xmark"></i>
+          </button>
+        </div>
+        <ul class="nav-list">
+          <li><a href="#home" class="nav-link active">Home</a></li>
+          <li><a href="#featured" class="nav-link">Favorites</a></li>
+          <li><a href="#menu" class="nav-link">Menu</a></li>
+          <li><a href="#about" class="nav-link">Why Us</a></li>
+          <li><a href="#contact" class="nav-link">Contact</a></li>
+        </ul>
+      </nav>
+
+      <div class="nav-actions">
+        <button class="cart-trigger" id="cart-trigger" onclick="scrollToOrder()" aria-label="View Order Summary">
+          <i class="fa-solid fa-bag-shopping"></i>
+          <span class="cart-badge" id="cart-count">0</span>
+        </button>
+        <a href="#order" class="btn btn-primary nav-btn desktop-only">
+          <span>Order Now</span>
+          <i class="fa-solid fa-arrow-right"></i>
+        </a>
+        <button class="hamburger" id="hamburger" aria-label="Toggle Menu">
+          <span class="bar"></span>
+          <span class="bar"></span>
+          <span class="bar"></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- HERO SECTION -->
+  <section class="hero" id="home">
+    <div class="hero-overlay"></div>
+    <div class="container hero-container">
+      <div class="hero-content">
+        <div class="hero-badge reveal">
+          <i class="fa-solid fa-fire"></i> Premium Fast Food Experience
+        </div>
+        <h1 class="hero-title reveal">
+          CRAVE IT.<br>
+          <span class="text-gradient">LOVE IT.</span><br>
+          ORDER IT.
+        </h1>
+        <p class="hero-subtitle reveal">
+          Loaded fries, juicy burgers, crispy rolls, and delicious fast food — freshly made and delivered hot to your doorstep with FREE delivery!
+        </p>
+        <div class="hero-buttons reveal">
+          <a href="#menu" class="btn btn-primary btn-lg">
+            <span>Explore Menu</span>
+            <i class="fa-solid fa-utensils"></i>
+          </a>
+          <a href="#order" class="btn btn-whatsapp btn-lg">
+            <i class="fa-brands fa-whatsapp"></i>
+            <span>Order on WhatsApp</span>
+          </a>
+        </div>
+        <div class="hero-stats reveal">
+          <div class="stat-item">
+            <span class="stat-number">100%</span>
+            <span class="stat-label">Fresh Ingredients</span>
+          </div>
+          <div class="stat-divider"></div>
+          <div class="stat-item">
+            <span class="stat-number">25+</span>
+            <span class="stat-label">Signature Items</span>
+          </div>
+          <div class="stat-divider"></div>
+          <div class="stat-item">
+            <span class="stat-number">4.9 ★</span>
+            <span class="stat-label">Customer Rating</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="hero-visual">
+        <div class="hero-image-wrapper">
+          <div class="hero-glow"></div>
+          <img src="https://images.unsplash.com/photo-1586190848861-99aa4a171e90?auto=format&fit=crop&q=80&w=800" alt="Gourmet Burger" class="hero-img hero-img-main">
+          <div class="floating-card float-1">
+            <i class="fa-solid fa-bolt icon-gold"></i>
+            <div>
+              <h4>Super Fast</h4>
+              <p>Hot & Free Delivery</p>
+            </div>
+          </div>
+          <div class="floating-card float-2">
+            <span class="badge-price">From Rs. 350</span>
+            <h4>Zinger Burger</h4>
+            <div class="stars">★★★★★</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FEATURED SECTION -->
+  <section class="featured section-padding" id="featured">
+    <div class="container">
+      <div class="section-header text-center">
+        <span class="sub-heading">Most Popular</span>
+        <h2 class="section-title">Customer <span class="text-gradient">Favorites</span></h2>
+        <p class="section-description">Handpicked signature dishes that our community simply can't get enough of.</p>
+      </div>
+
+      <div class="grid grid-4" id="featured-grid"></div>
+    </div>
+  </section>
+
+  <!-- MENU SECTION -->
+  <section class="menu section-padding" id="menu">
+    <div class="container">
+      <div class="section-header text-center">
+        <span class="sub-heading">Fresh & Sizzling</span>
+        <h2 class="section-title">Explore Our <span class="text-gradient">Menu</span></h2>
+        <p class="section-description">Select a category to filter through our savory handcrafted delights.</p>
+      </div>
+
+      <div class="filter-wrapper">
+        <div class="filter-tabs" id="filter-tabs">
+          <button class="filter-btn active" data-category="all">All Items</button>
+          <button class="filter-btn" data-category="Loaded Fries">Loaded Fries</button>
+          <button class="filter-btn" data-category="Shawarma">Shawarma</button>
+          <button class="filter-btn" data-category="Rolls">Rolls</button>
+          <button class="filter-btn" data-category="Burgers">Burgers</button>
+          <button class="filter-btn" data-category="Fries">Fries</button>
+          <button class="filter-btn" data-category="Snacks">Snacks</button>
+        </div>
+      </div>
+
+      <div class="grid grid-3" id="menu-grid"></div>
+    </div>
+  </section>
+
+  <!-- ORDER / CART SECTION -->
+  <section class="order-section section-padding" id="order">
+    <div class="container">
+      <div class="section-header text-center">
+        <span class="sub-heading">Direct WhatsApp Checkout</span>
+        <h2 class="section-title">Your <span class="text-gradient">Order Basket</span></h2>
+        <p class="section-description">Review your choices, enter your address, and place your order directly via WhatsApp.</p>
+      </div>
+
+      <div class="order-container">
+        <div class="order-card">
+          <div class="order-header">
+            <h3><i class="fa-solid fa-receipt"></i> Order Summary</h3>
+            <button class="btn-clear" id="clear-cart-btn"><i class="fa-solid fa-trash-can"></i> Clear All</button>
+          </div>
+
+          <div class="order-body" id="cart-items-container"></div>
+
+          <div class="order-address-box">
+            <label for="delivery-address"><i class="fa-solid fa-location-dot icon-gold"></i> Delivery Address:</label>
+            <textarea id="delivery-address" rows="2" placeholder="Apna Mukammal Delivery Address Yahan Likhein..."></textarea>
+          </div>
+
+          <div class="order-footer">
+            <div class="summary-line">
+              <span>Subtotal</span>
+              <span id="cart-subtotal">Rs. 0</span>
+            </div>
+            <div class="summary-line">
+              <span>Delivery Fee</span>
+              <span class="text-green">Rs. 0 (FREE)</span>
+            </div>
+            <div class="summary-line total-line">
+              <span>Total Amount</span>
+              <span class="total-price" id="cart-total">Rs. 0</span>
+            </div>
+
+            <button class="btn btn-whatsapp btn-block btn-lg" id="whatsapp-checkout-btn">
+              <i class="fa-brands fa-whatsapp"></i>
+              <span>Order via WhatsApp Now</span>
+            </button>
+            <p class="order-note"><i class="fa-solid fa-shield-halved"></i> Cash on Delivery available!</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT SECTION -->
+  <section class="about section-padding" id="about">
+    <div class="container">
+      <div class="section-header text-center">
+        <span class="sub-heading">Quality First</span>
+        <h2 class="section-title">Why Choose <span class="text-gradient">Golden Foods?</span></h2>
+      </div>
+
+      <div class="grid grid-4">
+        <div class="feature-card reveal">
+          <div class="feature-icon"><i class="fa-solid fa-leaf"></i></div>
+          <h3>Fresh Ingredients</h3>
+          <p>100% fresh meat and vegetables sourced daily from trusted local suppliers.</p>
+        </div>
+
+        <div class="feature-card reveal">
+          <div class="feature-icon"><i class="fa-solid fa-fire-burner"></i></div>
+          <h3>Made Fresh to Order</h3>
+          <p>No pre-cooked items. Every burger and fry box is prepped live upon your request.</p>
+        </div>
+
+        <div class="feature-card reveal">
+          <div class="feature-icon"><i class="fa-solid fa-drumstick-bite"></i></div>
+          <h3>Crispy & Delicious</h3>
+          <p>Our proprietary spice blends and double-fry techniques yield unmatched crunch.</p>
+        </div>
+
+        <div class="feature-card reveal">
+          <div class="feature-icon"><i class="fa-solid fa-truck-fast"></i></div>
+          <h3>Free Fast Delivery</h3>
+          <p>Insulated thermal packaging guarantees your food arrives hot with Rs. 0 delivery charge.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT SECTION -->
+  <section class="contact section-padding" id="contact">
+    <div class="container">
+      <div class="contact-wrapper">
+        <div class="contact-info reveal">
+          <span class="sub-heading">Get In Touch</span>
+          <h2 class="section-title">Reach Out <span class="text-gradient">To Us</span></h2>
+          <p class="contact-desc">Got a craving or hosting an event? Connect with us directly on WhatsApp!</p>
+
+          <div class="info-list">
+            <div class="info-item">
+              <div class="info-icon"><i class="fa-brands fa-whatsapp"></i></div>
+              <div>
+                <h4>WhatsApp Support & Orders</h4>
+                <p>+92 322 0214581</p>
+              </div>
+            </div>
+
+            <div class="info-item">
+              <div class="info-icon"><i class="fa-regular fa-clock"></i></div>
+              <div>
+                <h4>Opening Hours</h4>
+                <p>Mon - Sun: 4:00 PM – 1:00 AM</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="contact-actions">
+            <a href="https://wa.me/923220214581" target="_blank" class="btn btn-whatsapp">
+              <i class="fa-brands fa-whatsapp"></i>
+              <span>Chat on WhatsApp</span>
+            </a>
+          </div>
+        </div>
+
+        <div class="contact-visual reveal">
+          <div class="map-placeholder">
+            <img src="https://images.unsplash.com/photo-1526778548025-fa2f459cd5c1?auto=format&fit=crop&q=80&w=800" alt="Location Preview" class="map-img">
+            <div class="map-overlay">
+              <i class="fa-solid fa-store icon-gold"></i>
+              <h4>GOLDEN FOODS</h4>
+              <p>Takeaway • Free Home Delivery</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <a href="#home" class="brand-logo">
+            <span class="logo-text">GOLDEN</span><span class="logo-accent">FOODS</span>
+          </a>
+          <p>Redefining fast food with explosive flavors, premium ingredients, and free delivery.</p>
+          <div class="social-links">
+            <a href="https://wa.me/923220214581" target="_blank" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+          </div>
+        </div>
+
+        <div class="footer-links">
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#featured">Best Sellers</a></li>
+            <li><a href="#menu">Our Menu</a></li>
+            <li><a href="#about">Why Choose Us</a></li>
+            <li><a href="#order">Order Basket</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-links">
+          <h4>Our Specialties</h4>
+          <ul>
+            <li><a href="#menu">Signature Loaded Fries</a></li>
+            <li><a href="#menu">Special Chicken Shawarma</a></li>
+            <li><a href="#menu">Crispy Zinger Burgers</a></li>
+            <li><a href="#menu">Gourmet Paratha Rolls</a></li>
+            <li><a href="#menu">Hot Chicken Pakoras</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom text-center">
+        <p>&copy; 2026 GOLDEN FOODS. All Rights Reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- FLOATING VIEW CART BUTTON -->
+  <a href="#order" class="floating-view-cart" id="floatingCartBtn">
+    <div class="floating-cart-info">
+      <i class="fa-solid fa-basket-shopping"></i>
+      <span id="floatingCartCount">0 Items</span>
+    </div>
+    <span class="floating-cart-text">View Cart <i class="fa-solid fa-arrow-right"></i></span>
+  </a>
+
+  <!-- BACK TO TOP BUTTON -->
+  <button class="back-to-top" id="backToTop" aria-label="Scroll back to top">
+    <i class="fa-solid fa-arrow-up"></i>
+  </button>
+
+  <!-- JavaScript -->
+  <script src="script.js"></script>
+</body>
+</html>
