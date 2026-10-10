@@ -1,5 +1,5 @@
 /* Raja Golden Foods menu and WhatsApp cart */
-const WHATSAPP_NUMBER = "923343676822"; // Primary number from the supplied banner (0334-3676822)
+const WHATSAPP_NUMBER = "923461342910"; 
 const MENU_DATA = [
   {
     "id": 1,
