@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>GOLDEN FOODS | Premium Fast Food</title>
+  <title>Raja Golden Foods | Fresh Food & Free Home Delivery</title>
   
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -25,6 +25,31 @@
   <!-- Mobile Overlay for Navigation -->
   <div class="nav-overlay" id="nav-overlay"></div>
 
+  <!-- Order summary slides in from the right; no separate order page/section -->
+  <div class="cart-overlay" id="cart-overlay" aria-hidden="true"></div>
+  <aside class="cart-drawer" id="cart-drawer" aria-labelledby="cart-drawer-title" aria-hidden="true">
+    <div class="order-header drawer-header">
+      <h3 id="cart-drawer-title"><i class="fa-solid fa-receipt"></i> Order Summary</h3>
+      <div class="drawer-header-actions">
+        <button class="btn-clear" id="clear-cart-btn" type="button">Clear All</button>
+        <button class="drawer-close" id="cart-close-btn" type="button" aria-label="Close order summary"><i class="fa-solid fa-xmark"></i></button>
+      </div>
+    </div>
+    <div class="order-body drawer-items" id="cart-items-container"></div>
+    <div class="order-address-box">
+      <label for="delivery-address"><i class="fa-solid fa-location-dot icon-gold"></i> Delivery Address:</label>
+      <textarea id="delivery-address" rows="2" placeholder="Enter your complete delivery address..."></textarea>
+    </div>
+    <div class="order-footer drawer-footer">
+      <div class="summary-line"><span>Subtotal</span><span id="cart-subtotal">Rs. 0</span></div>
+      <div class="summary-line"><span>Delivery Fee</span><span class="text-green">FREE</span></div>
+      <div class="summary-line total-line"><span>Total Amount</span><span class="total-price" id="cart-total">Rs. 0</span></div>
+      <button class="btn btn-whatsapp btn-block btn-lg" id="whatsapp-checkout-btn" type="button"><i class="fa-brands fa-whatsapp"></i><span>Order Now on WhatsApp</span></button>
+      <p class="order-note"><i class="fa-solid fa-truck-fast"></i> Free home delivery</p>
+      <p class="drawer-contact">WhatsApp: 0334-3676822 / 0346-1342910</p>
+    </div>
+  </aside>
+
   <!-- NAVIGATION BAR -->
   <header class="navbar" id="navbar">
     <div class="nav-container">
@@ -45,6 +70,7 @@
           <li><a href="#home" class="nav-link active">Home</a></li>
           <li><a href="#featured" class="nav-link">Favorites</a></li>
           <li><a href="#menu" class="nav-link">Menu</a></li>
+          <li><a href="#dry-fruits" class="nav-link">Dry Fruits</a></li>
           <li><a href="#about" class="nav-link">Why Us</a></li>
           <li><a href="#contact" class="nav-link">Contact</a></li>
         </ul>
@@ -55,7 +81,7 @@
           <i class="fa-solid fa-bag-shopping"></i>
           <span class="cart-badge" id="cart-count">0</span>
         </button>
-        <a href="#order" class="btn btn-primary nav-btn desktop-only">
+        <a href="#menu" class="btn btn-primary nav-btn desktop-only">
           <span>Order Now</span>
           <i class="fa-solid fa-arrow-right"></i>
         </a>
@@ -89,7 +115,7 @@
             <span>Explore Menu</span>
             <i class="fa-solid fa-utensils"></i>
           </a>
-          <a href="#order" class="btn btn-whatsapp btn-lg">
+          <a href="#menu" class="btn btn-whatsapp btn-lg">
             <i class="fa-brands fa-whatsapp"></i>
             <span>Order on WhatsApp</span>
           </a>
@@ -156,66 +182,22 @@
       </div>
 
       <div class="filter-wrapper">
-        <div class="filter-tabs" id="filter-tabs">
-          <button class="filter-btn active" data-category="all">All Items</button>
-          <button class="filter-btn" data-category="Loaded Fries">Loaded Fries</button>
-          <button class="filter-btn" data-category="Shawarma">Shawarma</button>
-          <button class="filter-btn" data-category="Rolls">Rolls</button>
-          <button class="filter-btn" data-category="Burgers">Burgers</button>
-          <button class="filter-btn" data-category="Fries">Fries</button>
-          <button class="filter-btn" data-category="Snacks">Snacks</button>
-        </div>
+        <div class="filter-tabs" id="filter-tabs"><button class="filter-btn active" data-category="all">All Items</button></div>
       </div>
 
       <div class="grid grid-3" id="menu-grid"></div>
     </div>
   </section>
 
-  <!-- ORDER / CART SECTION -->
-  <section class="order-section section-padding" id="order">
+  <!-- DEDICATED DRY FRUITS SECTION -->
+  <section class="dry-fruits-section section-padding" id="dry-fruits">
     <div class="container">
       <div class="section-header text-center">
-        <span class="sub-heading">Direct WhatsApp Checkout</span>
-        <h2 class="section-title">Your <span class="text-gradient">Order Basket</span></h2>
-        <p class="section-description">Review your choices, enter your address, and place your order directly via WhatsApp.</p>
+        <span class="sub-heading">Healthy & Fresh</span>
+        <h2 class="section-title">Dry <span class="text-gradient">Fruits & Nuts</span></h2>
+        <p class="section-description">Peanuts and a selection of quality dry fruits, packed fresh for you.</p>
       </div>
-
-      <div class="order-container">
-        <div class="order-card">
-          <div class="order-header">
-            <h3><i class="fa-solid fa-receipt"></i> Order Summary</h3>
-            <button class="btn-clear" id="clear-cart-btn"><i class="fa-solid fa-trash-can"></i> Clear All</button>
-          </div>
-
-          <div class="order-body" id="cart-items-container"></div>
-
-          <div class="order-address-box">
-            <label for="delivery-address"><i class="fa-solid fa-location-dot icon-gold"></i> Delivery Address:</label>
-            <textarea id="delivery-address" rows="2" placeholder="Apna Mukammal Delivery Address Yahan Likhein..."></textarea>
-          </div>
-
-          <div class="order-footer">
-            <div class="summary-line">
-              <span>Subtotal</span>
-              <span id="cart-subtotal">Rs. 0</span>
-            </div>
-            <div class="summary-line">
-              <span>Delivery Fee</span>
-              <span class="text-green">Rs. 0 (FREE)</span>
-            </div>
-            <div class="summary-line total-line">
-              <span>Total Amount</span>
-              <span class="total-price" id="cart-total">Rs. 0</span>
-            </div>
-
-            <button class="btn btn-whatsapp btn-block btn-lg" id="whatsapp-checkout-btn">
-              <i class="fa-brands fa-whatsapp"></i>
-              <span>Order via WhatsApp Now</span>
-            </button>
-            <p class="order-note"><i class="fa-solid fa-shield-halved"></i> Cash on Delivery available!</p>
-          </div>
-        </div>
-      </div>
+      <div class="grid grid-3" id="dry-fruits-grid"></div>
     </div>
   </section>
 
@@ -269,7 +251,7 @@
               <div class="info-icon"><i class="fa-brands fa-whatsapp"></i></div>
               <div>
                 <h4>WhatsApp Support & Orders</h4>
-                <p>+92 322 0214581</p>
+                <p>0334-3676822<br>0346-1342910</p>
               </div>
             </div>
 
@@ -277,13 +259,13 @@
               <div class="info-icon"><i class="fa-regular fa-clock"></i></div>
               <div>
                 <h4>Opening Hours</h4>
-                <p>Mon - Sun: 4:00 PM – 1:00 AM</p>
+                <p>Mon - Sun: 12:00 PM – 10:00 PM</p>
               </div>
             </div>
           </div>
 
           <div class="contact-actions">
-            <a href="https://wa.me/923220214581" target="_blank" class="btn btn-whatsapp">
+            <a href="https://wa.me/923343676822" target="_blank" class="btn btn-whatsapp">
               <i class="fa-brands fa-whatsapp"></i>
               <span>Chat on WhatsApp</span>
             </a>
@@ -314,7 +296,7 @@
           </a>
           <p>Redefining fast food with explosive flavors, premium ingredients, and free delivery.</p>
           <div class="social-links">
-            <a href="https://wa.me/923220214581" target="_blank" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+            <a href="https://wa.me/923343676822" target="_blank" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
           </div>
         </div>
 
@@ -325,7 +307,7 @@
             <li><a href="#featured">Best Sellers</a></li>
             <li><a href="#menu">Our Menu</a></li>
             <li><a href="#about">Why Choose Us</a></li>
-            <li><a href="#order">Order Basket</a></li>
+            <li><a href="#menu">Order Basket</a></li>
           </ul>
         </div>
 
@@ -348,13 +330,13 @@
   </footer>
 
   <!-- FLOATING VIEW CART BUTTON -->
-  <a href="#order" class="floating-view-cart" id="floatingCartBtn">
+  <button type="button" class="floating-view-cart" id="floatingCartBtn">
     <div class="floating-cart-info">
       <i class="fa-solid fa-basket-shopping"></i>
       <span id="floatingCartCount">0 Items</span>
     </div>
     <span class="floating-cart-text">View Cart <i class="fa-solid fa-arrow-right"></i></span>
-  </a>
+  </button>
 
   <!-- BACK TO TOP BUTTON -->
   <button class="back-to-top" id="backToTop" aria-label="Scroll back to top">
