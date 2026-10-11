@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Raja Golden Foods | Fresh Food & Free Home Delivery</title>
+  <title>GOLDEN FOODS | Premium Fast Food</title>
   
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -25,31 +25,6 @@
   <!-- Mobile Overlay for Navigation -->
   <div class="nav-overlay" id="nav-overlay"></div>
 
-  <!-- Order summary slides in from the right; no separate order page/section -->
-  <div class="cart-overlay" id="cart-overlay" aria-hidden="true"></div>
-  <aside class="cart-drawer" id="cart-drawer" aria-labelledby="cart-drawer-title" aria-hidden="true">
-    <div class="order-header drawer-header">
-      <h3 id="cart-drawer-title"><i class="fa-solid fa-receipt"></i> Order Summary</h3>
-      <div class="drawer-header-actions">
-        <button class="btn-clear" id="clear-cart-btn" type="button">Clear All</button>
-        <button class="drawer-close" id="cart-close-btn" type="button" aria-label="Close order summary"><i class="fa-solid fa-xmark"></i></button>
-      </div>
-    </div>
-    <div class="order-body drawer-items" id="cart-items-container"></div>
-    <div class="order-address-box">
-      <label for="delivery-address"><i class="fa-solid fa-location-dot icon-gold"></i> Delivery Address:</label>
-      <textarea id="delivery-address" rows="2" placeholder="Enter your complete delivery address..."></textarea>
-    </div>
-    <div class="order-footer drawer-footer">
-      <div class="summary-line"><span>Subtotal</span><span id="cart-subtotal">Rs. 0</span></div>
-      <div class="summary-line"><span>Delivery Fee</span><span class="text-green">FREE</span></div>
-      <div class="summary-line total-line"><span>Total Amount</span><span class="total-price" id="cart-total">Rs. 0</span></div>
-      <button class="btn btn-whatsapp btn-block btn-lg" id="whatsapp-checkout-btn" type="button"><i class="fa-brands fa-whatsapp"></i><span>Order Now on WhatsApp</span></button>
-      <p class="order-note"><i class="fa-solid fa-truck-fast"></i> Free home delivery</p>
-      <p class="drawer-contact">WhatsApp: 0334-3676822 / 0346-1342910</p>
-    </div>
-  </aside>
-
   <!-- NAVIGATION BAR -->
   <header class="navbar" id="navbar">
     <div class="nav-container">
@@ -70,7 +45,6 @@
           <li><a href="#home" class="nav-link active">Home</a></li>
           <li><a href="#featured" class="nav-link">Favorites</a></li>
           <li><a href="#menu" class="nav-link">Menu</a></li>
-          <li><a href="#dry-fruits" class="nav-link">Dry Fruits</a></li>
           <li><a href="#about" class="nav-link">Why Us</a></li>
           <li><a href="#contact" class="nav-link">Contact</a></li>
         </ul>
@@ -81,7 +55,7 @@
           <i class="fa-solid fa-bag-shopping"></i>
           <span class="cart-badge" id="cart-count">0</span>
         </button>
-        <a href="#menu" class="btn btn-primary nav-btn desktop-only">
+        <a href="#order" class="btn btn-primary nav-btn desktop-only">
           <span>Order Now</span>
           <i class="fa-solid fa-arrow-right"></i>
         </a>
@@ -102,20 +76,23 @@
         <div class="hero-badge reveal">
           <i class="fa-solid fa-fire"></i> Premium Fast Food Experience
         </div>
+        <div class="delivery-promo reveal" role="note" aria-label="Free delivery offer">
+          <i class="fa-solid fa-truck-fast"></i> <span><strong>FREE DELIVERY</strong> on orders of Rs. 1,000 or more</span>
+        </div>
         <h1 class="hero-title reveal">
           CRAVE IT.<br>
           <span class="text-gradient">LOVE IT.</span><br>
           ORDER IT.
         </h1>
         <p class="hero-subtitle reveal">
-          Loaded fries, juicy burgers, crispy rolls, and delicious fast food — freshly made and delivered hot to your doorstep with FREE delivery!
+          Loaded fries, juicy burgers, crispy rolls, and delicious fast food — freshly made and delivered hot to your doorstep. Rs. 200 delivery, FREE on orders of Rs. 1,000 or more!
         </p>
         <div class="hero-buttons reveal">
           <a href="#menu" class="btn btn-primary btn-lg">
             <span>Explore Menu</span>
             <i class="fa-solid fa-utensils"></i>
           </a>
-          <a href="#menu" class="btn btn-whatsapp btn-lg">
+          <a href="#order" class="btn btn-whatsapp btn-lg">
             <i class="fa-brands fa-whatsapp"></i>
             <span>Order on WhatsApp</span>
           </a>
@@ -146,7 +123,7 @@
             <i class="fa-solid fa-bolt icon-gold"></i>
             <div>
               <h4>Super Fast</h4>
-              <p>Hot & Free Delivery</p>
+              <p>Free over Rs. 1,000</p>
             </div>
           </div>
           <div class="floating-card float-2">
@@ -180,9 +157,18 @@
         <h2 class="section-title">Explore Our <span class="text-gradient">Menu</span></h2>
         <p class="section-description">Select a category to filter through our savory handcrafted delights.</p>
       </div>
+      <div class="menu-delivery-offer"><i class="fa-solid fa-gift"></i><span><strong>Make it Rs. 1,000!</strong> Spend Rs. 1,000 or more and your delivery is FREE. Orders below Rs. 1,000 have a Rs. 200 delivery fee.</span></div>
 
       <div class="filter-wrapper">
-        <div class="filter-tabs" id="filter-tabs"><button class="filter-btn active" data-category="all">All Items</button></div>
+        <div class="filter-tabs" id="filter-tabs">
+          <button class="filter-btn active" data-category="all">All Items</button>
+          <button class="filter-btn" data-category="Loaded Fries">Loaded Fries</button>
+          <button class="filter-btn" data-category="Shawarma">Shawarma</button>
+          <button class="filter-btn" data-category="Rolls">Rolls</button>
+          <button class="filter-btn" data-category="Burgers">Burgers</button>
+          <button class="filter-btn" data-category="Fries">Fries</button>
+          <button class="filter-btn" data-category="Snacks">Snacks</button>
+        </div>
       </div>
 
       <div class="grid grid-3" id="menu-grid"></div>
@@ -193,15 +179,15 @@
   <section class="dry-fruits-section section-padding" id="dry-fruits">
     <div class="container">
       <div class="section-header text-center">
-        <span class="sub-heading">Healthy & Fresh</span>
-        <h2 class="section-title">Dry <span class="text-gradient">Fruits & Nuts</span></h2>
-        <p class="section-description">Peanuts and a selection of quality dry fruits, packed fresh for you.</p>
+        <span class="sub-heading">Fresh & Carefully Packed</span>
+        <h2 class="section-title">Dry <span class="text-gradient">Fruits</span></h2>
+        <p class="section-description">A separate selection of nuts, dates and dry-fruit mixes for every craving.</p>
       </div>
       <div class="grid grid-3" id="dry-fruits-grid"></div>
     </div>
   </section>
 
-  <!-- ABOUT SECTION -->
+  <!-- ABOUT US / WHY CHOOSE US -->
   <section class="about section-padding" id="about">
     <div class="container">
       <div class="section-header text-center">
@@ -238,105 +224,94 @@
   </section>
 
   <!-- CONTACT SECTION -->
-  <section class="contact section-padding" id="contact">
+  <section class="contact-section section-padding" id="contact">
     <div class="container">
+      <div class="section-header text-center">
+        <span class="sub-heading">We're Here to Help</span>
+        <h2 class="section-title">Get in <span class="text-gradient">Touch</span></h2>
+        <p class="section-description">Have a question about the menu or your order? Contact Raja Golden Foods on WhatsApp.</p>
+      </div>
       <div class="contact-wrapper">
-        <div class="contact-info reveal">
-          <span class="sub-heading">Get In Touch</span>
-          <h2 class="section-title">Reach Out <span class="text-gradient">To Us</span></h2>
-          <p class="contact-desc">Got a craving or hosting an event? Connect with us directly on WhatsApp!</p>
-
+        <div class="contact-info">
           <div class="info-list">
-            <div class="info-item">
-              <div class="info-icon"><i class="fa-brands fa-whatsapp"></i></div>
-              <div>
-                <h4>WhatsApp Support & Orders</h4>
-                <p>0334-3676822<br>0346-1342910</p>
-              </div>
-            </div>
-
-            <div class="info-item">
-              <div class="info-icon"><i class="fa-regular fa-clock"></i></div>
-              <div>
-                <h4>Opening Hours</h4>
-                <p>Mon - Sun: 12:00 PM – 10:00 PM</p>
-              </div>
-            </div>
+            <div class="info-item"><div class="info-icon"><i class="fa-brands fa-whatsapp"></i></div><div><h3>WhatsApp Orders</h3><p>Chat with us to place or confirm your order.</p><a class="contact-link" href="https://wa.me/923461342910" target="_blank" rel="noopener">+92 346 1342910</a></div></div>
+            <div class="info-item"><div class="info-icon"><i class="fa-solid fa-clock"></i></div><div><h3>Order Anytime</h3><p>Send your order details through WhatsApp and we'll confirm availability.</p></div></div>
+            <div class="info-item"><div class="info-icon"><i class="fa-solid fa-motorcycle"></i></div><div><h3>Delivery Charges</h3><p>Rs. 200 for orders below Rs. 1,000. Free delivery on orders of Rs. 1,000 or more.</p></div></div>
           </div>
-
-          <div class="contact-actions">
-            <a href="https://wa.me/923343676822" target="_blank" class="btn btn-whatsapp">
-              <i class="fa-brands fa-whatsapp"></i>
-              <span>Chat on WhatsApp</span>
-            </a>
-          </div>
+          <a class="btn btn-whatsapp btn-lg" href="https://wa.me/923461342910" target="_blank" rel="noopener"><i class="fa-brands fa-whatsapp"></i><span>Contact on WhatsApp</span></a>
         </div>
-
-        <div class="contact-visual reveal">
-          <div class="map-placeholder">
-            <img src="https://images.unsplash.com/photo-1526778548025-fa2f459cd5c1?auto=format&fit=crop&q=80&w=800" alt="Location Preview" class="map-img">
-            <div class="map-overlay">
-              <i class="fa-solid fa-store icon-gold"></i>
-              <h4>GOLDEN FOODS</h4>
-              <p>Takeaway • Free Home Delivery</p>
-            </div>
-          </div>
+        <div class="contact-visual">
+          <img src="https://images.unsplash.com/photo-1526367790999-0150786686a2?auto=format&fit=crop&q=85&w=1000" alt="Food delivery prepared for a customer" loading="lazy">
+          <div class="contact-image-overlay"><i class="fa-solid fa-location-dot"></i><div><h3>Your cravings, delivered</h3><p>Place your order in a few simple steps.</p></div></div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- FOOTER -->
-  <footer class="footer">
+  <!-- FULL WEBSITE FOOTER -->
+  <footer class="footer" id="site-footer">
     <div class="container">
       <div class="footer-top">
         <div class="footer-brand">
-          <a href="#home" class="brand-logo">
-            <span class="logo-text">GOLDEN</span><span class="logo-accent">FOODS</span>
-          </a>
-          <p>Redefining fast food with explosive flavors, premium ingredients, and free delivery.</p>
-          <div class="social-links">
-            <a href="https://wa.me/923343676822" target="_blank" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
-          </div>
+          <a href="#home" class="brand-logo"><span class="logo-text">RAJA</span><span class="logo-accent"> GOLDEN FOODS</span></a>
+          <p>Your favourite burgers, rolls, snacks, traditional food and dry fruits — prepared with care and available to order from home.</p>
+          <div class="social-links"><a href="https://wa.me/923461342910" target="_blank" rel="noopener" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a></div>
         </div>
-
-        <div class="footer-links">
-          <h4>Quick Links</h4>
-          <ul>
-            <li><a href="#home">Home</a></li>
-            <li><a href="#featured">Best Sellers</a></li>
-            <li><a href="#menu">Our Menu</a></li>
-            <li><a href="#about">Why Choose Us</a></li>
-            <li><a href="#menu">Order Basket</a></li>
-          </ul>
-        </div>
-
-        <div class="footer-links">
-          <h4>Our Specialties</h4>
-          <ul>
-            <li><a href="#menu">Signature Loaded Fries</a></li>
-            <li><a href="#menu">Special Chicken Shawarma</a></li>
-            <li><a href="#menu">Crispy Zinger Burgers</a></li>
-            <li><a href="#menu">Gourmet Paratha Rolls</a></li>
-            <li><a href="#menu">Hot Chicken Pakoras</a></li>
-          </ul>
-        </div>
+        <div class="footer-links"><h4>Quick Links</h4><ul><li><a href="#home">Home</a></li><li><a href="#featured">Customer Favorites</a></li><li><a href="#menu">Full Menu</a></li><li><a href="#dry-fruits">Dry Fruits</a></li></ul></div>
+        <div class="footer-links"><h4>Customer Care</h4><ul><li><a href="#about">About Us</a></li><li><a href="#contact">Contact Us</a></li><li><a href="#contact">Delivery Information</a></li><li><a href="https://wa.me/923461342910" target="_blank" rel="noopener">WhatsApp: +92 346 1342910</a></li></ul></div>
       </div>
-
-      <div class="footer-bottom text-center">
-        <p>&copy; 2026 GOLDEN FOODS. All Rights Reserved.</p>
-      </div>
+      <div class="footer-bottom"><p>© <span id="current-year">2026</span> Raja Golden Foods. All rights reserved.</p><p class="footer-delivery-note">Rs. 200 delivery · FREE delivery on orders of Rs. 1,000 or more</p></div>
     </div>
   </footer>
 
+  <!-- RIGHT-SIDE ORDER SUMMARY DRAWER -->
+  <div class="cart-overlay" id="cart-overlay" aria-hidden="true"></div>
+  <aside class="cart-drawer" id="cart-drawer" aria-hidden="true" aria-label="Order Summary">
+    <div class="drawer-header">
+      <div class="order-header">
+        <h3><i class="fa-solid fa-receipt"></i> Order Summary</h3>
+        <div class="drawer-header-actions">
+          <button class="btn-clear" id="clear-cart-btn"><i class="fa-solid fa-trash-can"></i> Clear All</button>
+          <button class="drawer-close" id="cart-close-btn" aria-label="Close order summary"><i class="fa-solid fa-xmark"></i></button>
+        </div>
+      </div>
+    </div>
+    <div class="order-body drawer-items" id="cart-items-container"></div>
+    <div class="order-address-box">
+      <label for="delivery-address"><i class="fa-solid fa-location-dot icon-gold"></i> Delivery Address:</label>
+      <textarea id="delivery-address" rows="2" placeholder="Enter your complete delivery address...."></textarea>
+    </div>
+    <div class="order-footer">
+      <div class="summary-line">
+        <span>Subtotal</span>
+        <span id="cart-subtotal">Rs. 0</span>
+      </div>
+      <div class="summary-line">
+        <span>Delivery Fee</span>
+        <span id="cart-delivery-fee" class="text-green">FREE</span>
+      </div>
+      <p class="delivery-threshold-note"><i class="fa-solid fa-circle-info"></i> Free delivery when your subtotal reaches Rs. 1,000. Otherwise Rs. 200.</p>
+      <div class="summary-line total-line">
+        <span>Total Amount</span>
+        <span class="total-price" id="cart-total">Rs. 0</span>
+      </div>
+      <button class="btn btn-whatsapp btn-block btn-lg" id="whatsapp-checkout-btn">
+        <i class="fa-brands fa-whatsapp"></i>
+        <span>Order via WhatsApp Now</span>
+      </button>
+      <p class="order-note"><i class="fa-solid fa-shield-halved"></i> Cash on Delivery available!</p>
+      <p class="drawer-contact">Fresh food, delivered to your doorstep.</p>
+    </div>
+  </aside>
+
   <!-- FLOATING VIEW CART BUTTON -->
-  <button type="button" class="floating-view-cart" id="floatingCartBtn">
+  <a href="#order" class="floating-view-cart" id="floatingCartBtn">
     <div class="floating-cart-info">
       <i class="fa-solid fa-basket-shopping"></i>
       <span id="floatingCartCount">0 Items</span>
     </div>
     <span class="floating-cart-text">View Cart <i class="fa-solid fa-arrow-right"></i></span>
-  </button>
+  </a>
 
   <!-- BACK TO TOP BUTTON -->
   <button class="back-to-top" id="backToTop" aria-label="Scroll back to top">
